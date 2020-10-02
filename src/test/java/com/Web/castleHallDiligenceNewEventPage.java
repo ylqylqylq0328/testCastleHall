@@ -29,10 +29,13 @@ public class castleHallDiligenceNewEventPage extends PageObject{
         super(driver);
     }
 
-    public void SubmitAction(String email) {
+    public void SubmitAction(String email, boolean receiveCommunication) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,1100)");
         Email.sendKeys(email);
+        if (receiveCommunication) {
+            ReceiveCommunication.click();
+        }
         ReceiveCommunication.click();
         Actions actions = new Actions(driver);
         actions.moveToElement(Submit).click().build().perform();
