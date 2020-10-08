@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "test"
-                sh "chmod 755 gradlew.bat"
+                sh "chmod 755 gradlew"
                 sh "ls -lart"
             }
         }
