@@ -14,6 +14,13 @@ pipeline {
             }
         }
     }
+
+    post {
+        always {
+            archiveArtifacts allowEmptyArchive: true, artifacts: '**/build/test-results/**/*.xml,**/build/**/*.log'
+            junit allowEmptyResults: true, keepLongStdio: true, testResults: '**/build/test-results/**/*.xml'
+        }
+    }
 }
 
 def gradlew( task , boolean exitOnFailure=true ) {
