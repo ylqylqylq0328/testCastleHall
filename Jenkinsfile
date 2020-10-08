@@ -2,10 +2,10 @@ pipeline {
     agent any
     stages {
         stage('Build') {
-                    steps {
-                        gradlew build
-                    }
-                }
+            steps {
+                echo "test"
+            }
+        }
         stage('Test') {
             steps {
                 gradlew 'test'
