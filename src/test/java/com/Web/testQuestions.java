@@ -1,6 +1,7 @@
 package com.Web;
 
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -8,7 +9,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
+@Disabled
 public class testQuestions extends FunctionalTest{
 
     final String url1 = "https://www.castlehalldiligence.com/";
@@ -28,11 +29,11 @@ public class testQuestions extends FunctionalTest{
         driver.manage().window().maximize();
         castleHallDiligenceHomePage homePage = new castleHallDiligenceHomePage(driver);
         homePage.aboutClickAction();
-        assertTrue(homePage.OurStoryIsDisplayed());
+        assertTrue(homePage.OurStoryIsDisplayed());//
         assertTrue(homePage.WhyCastleHallIsDisplayed());
         assertTrue(homePage.OurTeamIsDisplayed());
         assertTrue(homePage.CareersIsDisplayed());
-        assertEquals("Our Story", homePage.OurStoryText());
+        assertEquals("Our Story", homePage.OurStoryText());//
         assertEquals("Why Castle Hall", homePage.WhyCastleHallText());
         assertEquals("Our Team", homePage.OurTeamText());
         assertEquals("Careers",homePage.CareersText());

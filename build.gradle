@@ -22,12 +22,20 @@ dependencies {
     testImplementation("org.junit.platform:junit-platform-suite-api:1.6.2")
     testImplementation("org.junit.jupiter:junit-jupiter-params:5.6.2")
     testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.6.2")
+    testCompile group: 'io.rest-assured', name: 'rest-assured', version: '4.3.1'
+
+    // https://mvnrepository.com/artifact/net.sourceforge.htmlunit/htmlunit
+    compile group: 'net.sourceforge.htmlunit', name: 'htmlunit', version: '2.44.0'
+
 
 }
 
 test {
     useJUnitPlatform()
+    description "Run tests"
     testLogging {
         events "passed", "skipped", "failed"
     }
+    // ensure it is always re-run
+    test.outputs.upToDateWhen { false }
 }

@@ -1,11 +1,15 @@
 package com.Web;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class castleHallDiligenceHomePage extends PageObject{
 
@@ -24,6 +28,8 @@ public class castleHallDiligenceHomePage extends PageObject{
     @FindBy(xpath = "//*[@id='hs_menu_wrapper_module_146731076570911']/ul/li[3]/ul/li[4]/a")
     private WebElement Careers;
 
+
+
     public castleHallDiligenceHomePage(WebDriver driver) {
         super(driver);
     }
@@ -33,6 +39,10 @@ public class castleHallDiligenceHomePage extends PageObject{
         actions.moveToElement(About).click().build().perform();
         WebDriverWait myWait = new WebDriverWait(driver, 10);
         myWait.until(ExpectedConditions.visibilityOf(OurStory));
+
+        List<WebElement> contentsWeb = driver.findElements(By.xpath("//*[@id='hs_menu_wrapper_module_146731076570911']/ul/li[3]/ul/li"));
+        Object[] itemsArray1 = contentsWeb.stream().filter(x->x.getText().length()>0).map(x->x.getText()).toArray();
+        Arrays.sort(itemsArray1);
     }
 
     public boolean OurStoryIsDisplayed() {
@@ -55,7 +65,8 @@ public class castleHallDiligenceHomePage extends PageObject{
         return OurStory.getText();
     }
 
-    public String WhyCastleHallText() {
+    public String WhyCastleHallText()
+    {
         return WhyCastleHall.getText();
     }
 
