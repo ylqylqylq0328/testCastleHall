@@ -1,7 +1,11 @@
 pipeline {
-    stage('Test') {
-        steps {
-            gradlew test
+    agent {
+    }
+    stages {
+        stage('Test') {
+            steps {
+                gradlew test
+            }
         }
     }
 }
