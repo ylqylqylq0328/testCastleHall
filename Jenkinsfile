@@ -19,7 +19,7 @@ def gradlew( task , boolean exitOnFailure=true ) {
 
     cmd += task
     def exitCode = sh(
-        script: path + ' ' + cmd.join(' '),
+        script: cmd.join(' '),
         returnStatus: true)
 
     if (exitCode != 0) {
